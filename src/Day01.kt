@@ -1,21 +1,31 @@
 import java.io.File
 
-val input = File("resources/day01").readLines()
+var frequency = 0
 
-fun frequency() {
-    println(input.map { number -> number.toInt() }.reduce { sum, element -> sum + element })
+fun frequency(input: List<Int>) {
+    println(input.reduce { sum, element -> sum + element })
 }
 
 val seenFrequencies = mutableSetOf<Int>()
 
-fun extended_frequency() {
-    var frequency = 0
-    for (next in input.map { it.toInt() }) {
-        frequency =+ next
+fun extendedFrequency(input: List<Int>) : Int {
+    for (next in input) {
+        println("current frequency = $frequency , change of $next ")
+        if (!seenFrequencies.contains(frequency)) {
+          seenFrequencies.add(frequency)
+        } else {
+          return frequency
+        }
+        frequency += next
     }
-
+    return Int.MAX_VALUE
 }
 
 fun main(args: Array<String>) {
-    frequency()
+    val input = File("resources/day01").readLines().map { it.toInt() }
+        var seens = Int.MAX_VALUE
+    while (seens == Int.MAX_VALUE) {
+        seens = extendedFrequency(input)
+    }
+    println(seens)
 }
