@@ -6,7 +6,7 @@ fun frequency(input: List<Int>) {
     println(input.reduce { sum, element -> sum + element })
 }
 
-val seenFrequencies = mutableSetOf<Int>()
+private val seenFrequencies = mutableSetOf<Int>()
 
 fun extendedFrequency(input: List<Int>) : Int {
     for (next in input) {
