@@ -1,8 +1,8 @@
 import java.io.File
 
-var frequency = 0
+private var frequency = 0
 
-fun frequency(input: List<Int>) {
+private fun frequency(input: List<Int>) {
     println(input.reduce { sum, element -> sum + element })
 }
 

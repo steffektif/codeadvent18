@@ -1,9 +1,9 @@
 import java.io.File
 
-var twos = 0
-var threes = 0
+private var twos = 0
+private var threes = 0
 
-var solution = ""
+private var solution = ""
 
 fun checksum(input :List<String>): Int {
     input.map { it.trim() }.map { it.split("") }.map { findTwosAndThrees(it) }
